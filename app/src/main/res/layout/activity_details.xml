@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F2F1"
+    android:fillViewport="true"
+    android:padding="12dp"
+    tools:context="com.android.inventory.DetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/product"/>
+
+
+        <LinearLayout
+            android:id="@+id/prod_name_wrapper"
+            style="@style/horLinearStyle"
+            android:layout_below="@+id/photo">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/product_name"/>
+
+            <EditText
+                android:id="@+id/name_edit"
+                style="@style/EditStyle"
+                android:hint="@string/edit_name"
+                android:inputType="textCapWords"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/price_wrapper"
+            style="@style/horLinearStyle"
+            android:layout_below="@+id/prod_name_wrapper">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/product_price"/>
+
+            <EditText
+                android:id="@+id/price_edit"
+                style="@style/EditStyle"
+                android:hint="@string/edit_price"
+                android:inputType="numberDecimal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/supplier_name_wrapper"
+            style="@style/horLinearStyle"
+            android:layout_below="@+id/price_wrapper">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/supplier_name"/>
+
+            <EditText
+                android:id="@+id/supplier_name"
+                style="@style/EditStyle"
+                android:hint="@string/enter_supplier_name"
+                android:inputType="text"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/phone_wrapper"
+            style="@style/horLinearStyle"
+            android:layout_below="@+id/supplier_name_wrapper">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/supplier_phone"/>
+
+            <EditText
+                android:id="@+id/supplier_phone"
+                style="@style/EditStyle"
+                android:hint="@string/edit_supplier_phone"
+                android:inputType="number"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/quantity_wrapper"
+            style="@style/horLinearStyle"
+            android:layout_below="@+id/phone_wrapper">
+
+            <TextView
+                style="@style/TextViewStyle"
+                android:text="@string/product_quantity"/>
+
+            <ImageButton
+                android:id="@+id/decrease_quantity"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_remove_white_24dp"/>
+
+            <EditText
+                android:id="@+id/quantity_edit"
+                style="@style/EditStyle"
+                android:layout_width="90dp"
+                android:gravity="center"
+                android:hint="@string/product_quantity"
+                android:inputType="number"/>
+
+            <ImageButton
+                android:id="@+id/increase_quantity"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_add_white_24dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/quantity_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:gravity="bottom|center">
+
+            <Button
+                android:id="@+id/call"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/roundedbutton"
+                android:drawableLeft="@drawable/ic_call_white_48dp"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="@string/supplier"
+                android:textColor="@android:color/white"
+                android:textAppearance="?android:textAppearanceSmall"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>
+
+

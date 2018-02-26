@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Inventory App</string>
+    <string name="action_save">save</string>
+    <string name="action_delete">delete</string>
+    <string name="edit_name">Enter Product Name</string>
+    <string name="edit_quantity">Enter product Quantity</string>
+    <string name="edit_price">Enter Product Price</string>
+    <string name="edit_supplier_phone">Enter Supplier Phone</string>
+    <string name="supplier">supplier</string>
+    <string name="add_product">Add Product</string>
+    <string name="edit_product">Edit Product</string>
+    <string name="details_insert_product_successful">insert product successful</string>
+    <string name="details_insert_product_fail">insert product fail</string>
+    <string name="details_update_product_successful">update product successful</string>
+    <string name="details_update_product_fail">update product fail</string>
+    <string name="delete_dialog_msg">Delete this product?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="details_delete_product_successful">delete product successful</string>
+    <string name="details_delete_product_fail">delete product fail</string>
+    <string name="discard_dialog_msg">Discard your changes and quite editing?</string>
+    <string name="discard">Discard</string>
+    <string name="editing">Keep Editing</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_price">Product Price</string>
+    <string name="supplier_phone">Supplier Phone</string>
+    <string name="enter_supplier_name">Enter Supplier Name</string>
+    <string name="supplier_name">Supplier Name</string>
+    <string name="product_quantity">Quantity</string>
+    <string name="sale">SALE</string>
+    <string name="product_image">Product Image</string>
+</resources>
