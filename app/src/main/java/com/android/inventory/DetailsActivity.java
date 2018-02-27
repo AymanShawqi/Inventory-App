@@ -162,7 +162,6 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
         switch (id) {
             case R.id.save:
                 saveProduct();
-                finish();
                 return true;
             case R.id.delete:
                 showDeleteConfirmationDialog();
@@ -215,6 +214,7 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
             else
                 Toast.makeText(this, getString(R.string.details_update_product_successful), Toast.LENGTH_SHORT).show();
         }
+        finish();
     }
 
     private void showDeleteConfirmationDialog() {
@@ -308,11 +308,13 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
             int priceColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_Product_PRICE);
             int supplierColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_Product_SUPPLIER_PHONE);
             int imageColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_Product_IMAGE);
+            int supplierNameColumnIndex=cursor.getColumnIndex(ProductEntry.COLUMN_Product_NAME);
 
             String nameString = cursor.getString(nameColumnIndex);
             mQuantity = cursor.getInt(quantityColumnIndex);
             double price = cursor.getDouble(priceColumnIndex);
             String supplierPhone = cursor.getString(supplierColumnIndex);
+            String supplierName = cursor.getString(supplierNameColumnIndex);
 
             byte[] imageByte = cursor.getBlob(imageColumnIndex);
             if (imageByte.length > 0) {
@@ -324,6 +326,7 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
             mQuantityEditText.setText(Integer.toString(mQuantity));
             mPriceEditText.setText(" " + price);
             mPhoneEditText.setText(supplierPhone);
+            mSupplierNameEditText.setText(supplierName);
         }
 
     }

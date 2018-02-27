@@ -10,6 +10,7 @@ public class ProductContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     public static final String PATH_PRODUCTS = "products";
 
+    //An empty private constructor makes sure that the class is not going to be initialised
     private ProductContract() {
     }
 

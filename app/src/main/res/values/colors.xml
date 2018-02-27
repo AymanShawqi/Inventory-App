@@ -4,4 +4,5 @@
     <color name="colorPrimary">#00AA8D</color>
     <color name="colorAccent">#00BF9A</color>
     <color name="bgColor">#B2DFDB</color>
+    <color name="listItemBg">#bdffffff</color>
 </resources>

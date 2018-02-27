@@ -23,7 +23,7 @@ public class ProductCursorAdapter extends CursorAdapter implements View.OnClickL
     private final static String ONE_QUANTITY_UNIT = "item";
 
     private final MainActivity mActivity;
-
+    private  ViewHolder viewHolder;
     public ProductCursorAdapter(MainActivity context, Cursor cursor) {
         super(context, cursor, 0);
         mActivity = context;
@@ -31,17 +31,25 @@ public class ProductCursorAdapter extends CursorAdapter implements View.OnClickL
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        View view= LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+        viewHolder = new ViewHolder();
+        viewHolder.nameTextView = view.findViewById(R.id.name);
+        viewHolder.priceTextView = view.findViewById(R.id.price);
+        viewHolder.quantityTextView = view.findViewById(R.id.quantity);
+        viewHolder.productImageView = view.findViewById(R.id.main_prod_image);
+        view.setTag(viewHolder);
+        return view;
     }
 
     @Override
     public void bindView(View view, final Context context, final Cursor cursor) {
 
+            viewHolder = (ViewHolder)view.getTag();
 
-        TextView nameTextView = view.findViewById(R.id.name);
-        TextView quantityTextView = view.findViewById(R.id.quantity);
-        TextView priceTextView = view.findViewById(R.id.price);
-        ImageView productImageView = view.findViewById(R.id.main_prod_image);
+        //TextView nameTextView = view.findViewById(R.id.name);
+        //TextView quantityTextView = view.findViewById(R.id.quantity);
+        //TextView priceTextView = view.findViewById(R.id.price);
+        //ImageView productImageView = view.findViewById(R.id.main_prod_image);
         int idColumnIndex = cursor.getColumnIndex(ProductEntry._ID);
         int nameColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_Product_NAME);
         int quantityColumnIndex = cursor.getColumnIndex(ProductEntry.COLUMN_Product_QUANTITY);
@@ -56,16 +64,16 @@ public class ProductCursorAdapter extends CursorAdapter implements View.OnClickL
         byte[] imageByte = cursor.getBlob(imageColumnIndex);
         if (imageByte.length > 0) {
             Bitmap bitmap = ImageOperations.convertImageByteToBitmap(imageByte);
-            productImageView.setImageBitmap(bitmap);
+            viewHolder.productImageView.setImageBitmap(bitmap);
         }
 
         String unit = QUANTITY_UNIT;
         if (quantity == 1)
             unit = ONE_QUANTITY_UNIT;
 
-        nameTextView.setText(name);
-        quantityTextView.setText(String.format("%d %s", quantity, unit));
-        priceTextView.setText(String.format("%s %s", formatePrice(price), "$"));
+        viewHolder.nameTextView.setText(name);
+        viewHolder.quantityTextView.setText(String.format("%d %s", quantity, unit));
+        viewHolder.priceTextView.setText(String.format("%s %s", formatePrice(price), "$"));
 
 
         TextView saleBtn = view.findViewById(R.id.sale);
@@ -98,5 +106,10 @@ public class ProductCursorAdapter extends CursorAdapter implements View.OnClickL
         int quantity;
     }
 
-
+    static class ViewHolder{
+        TextView nameTextView ;
+        TextView quantityTextView ;
+        TextView priceTextView ;
+        ImageView productImageView ;
+    }
 }
